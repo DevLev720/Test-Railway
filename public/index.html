@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Einträge Test</h1>
+    <form action="/entries" method="POST">
+      <input type="text" name="text" placeholder="Text eingeben..." required>
+      <button type="submit">Hinzufügen</button>
+    </form>
+    <ul id="entries"></ul>
+  </div>
+
+  <script>
+    async function loadEntries() {
+      const res = await fetch('/entries');
+      const data = await res.json();
+      const list = document.getElementById('entries');
+      list.innerHTML = '';
+      data.forEach(entry => {
+        const li = document.createElement('li');
+        li.textContent = entry.text;
+        list.appendChild(li);
+      });
+    }
+    loadEntries();
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Einträge Test</h1>
+    <form action="/entries" method="POST">
+      <input type="text" name="text" placeholder="Text eingeben..." required>
+      <button type="submit">Hinzufügen</button>
+    </form>
+    <ul id="entries"></ul>
+  </div>
+
+  <script>
+    async function loadEntries() {
+      const res = await fetch('/entries');
+      const data = await res.json();
+      const list = document.getElementById('entries');
+      list.innerHTML = '';
+      data.forEach(entry => {
+        const li = document.createElement('li');
+        li.textContent = entry.text;
+        list.appendChild(li);
+      });
+    }
+    loadEntries();
+  </script>
+</body>
+</html>
