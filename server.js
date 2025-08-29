@@ -41,5 +41,6 @@ app.post('/entries', async (req, res) => {
 
 // Server starten
 app.listen(PORT, () => {
-  console.log(`Server läuft auf http://localhost:${PORT}`);
+  const host = process.env.PORT ? 'Railway Host' : 'http://localhost';
+  console.log(`Server läuft auf ${host}:${PORT}`);
 });
